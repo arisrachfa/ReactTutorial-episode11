@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+// libraries
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+
+// style
 import './App.css';
+
+// pages
+import Home from './Home';
+import FormBasic from './Components/FormBasic';
+import FormValidation from './Components/FormValidation';
+import Navbar from './Navbar';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Router>
+        <div className='navigation'>
+          <Navbar />
+        </div>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/formBasic' element={<FormBasic/>}/>
+          <Route path='/formValidation' element={<FormValidation/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
